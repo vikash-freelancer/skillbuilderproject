@@ -1,90 +1,120 @@
 
 <div class="container">
-   <div class="col-lg-12 ">
-        <div class="col-lg-8 ">
-        
-        <h2>Welcome to SKILL Builder</h2>
-        <p>Join our community that have more than 10000<br> subscribers and learn new things everyday </p>
-     
-    </div>
-    <div class="col-lg-4">
-   <form class="form-horizontal" #f="ngForm" (ngSubmit)="addRegistration(f)" >
-     <div id="legend">
-        <h3>Skill Builder</h3><hr>
-      </div>
-  
-      <!--FirstName-->
-      <div class="control-group">
-          <label class="control-label"  for="fistName">First Name</label>
-          <div class="controls">
-            <input type="text"[(ngModel)]="registration.fistName" id="lastName" name="FirstName" placeholder="Enter your First Name" class="input-xlarge">
-          </div>
-        </div>
-  
-      <!-- LastName -->
-      <div class="control-group">
-          <label class="control-label"  for="lastName">Last Name</label>
-          <div class="controls">
-            <input type="text"[(ngModel)]="registration.lastName" id="lastName" name="LastName" placeholder="Enter your Last Name" class="input-xlarge">
-          </div>
-        </div>
+    <div class="col-lg-12 ">
+         <div class="col-lg-8 ">
+         
+         <h2>Welcome to SKILL Builder</h2>
+         <p>Join our community that have more than 10000<br> subscribers and learn new things everyday </p>
+      
+     </div>
+     <div class="col-lg-4">
+    <form class="form-horizontal" #f="ngForm" (ngSubmit)="addRegistration(f)" >
+      <div id="legend">
+         <h3>Skill Builder</h3><hr>
+       </div>
    
-      <!-- E-mail -->
-      <div class="control-group">
-        <label class="control-label" for="email">E-mail</label>
-        <div class="controls">
-          <input type="text" [(ngModel)]="registration.email" id="email" name="email" placeholder="Enter your Email" class="input-xlarge">
-         </div>
-      </div>
-  
-      <!-- contactNo -->
-      <div class="control-group"> 
-          <label class="control-label"  for="contactNo">Contact No</label>
-          <div class="controls">
-             <input type="text" [(ngModel)]="registration.contactNo"id="contactNo" name="contactNo" placeholder="Enter your Contact No" class="input-xlarge">
-          
-          </div>
-        </div>
-   
-      <!-- Password -->
-      <div class="control-group">
-        <label class="control-label" for="password">Password</label>
-        <div class="controls">
-          <input type="password" [(ngModel)]="registration.password" id="password" name="password" placeholder="Enter your Password" class="input-xlarge">
-         </div>
-      </div>
-  
-      <!-- ConfirmPassword -->
-      <div class="control-group">
-          <label class="control-label" for="password">Confirm Password</label>
-          <div class="controls">
-            <input type="password" [(ngModel)]="registration.confirmPassword"id="ConfirmPassword" name="Confirm Password" placeholder="Re-type your Password" >
+       <!--FirstName-->
+       <div class="control-group">
+           <label class="control-label"  for="firstName">First Name</label>
+           <div class="controls">
+             <input type="text"[(ngModel)]="registration.firstName" id="lastName" name="FirstName" placeholder="Enter your First Name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" #firstNameField="ngModel">
            </div>
-        </div>
+           <div *ngIf="!firstNameField.valid && (firstNameField.dirty || firstNameField.touched)">
+               <span style="color: #c52323">First Name Required</span>
+           </div>
+         </div>
+         
    
-      <!-- Gender -->
-        <div class = "control-group" >
-            <div class ="radio-button">
-        <div ng-if="selectedGender == 'M' || selectedGender == 'F'">
-          <label class="control-label" for="male"  style= 'display: inline'>Male</label>
-        <input type="radio" name="gender" value="M" [(ngModel)]="registration.gender" ng-checked="true"/>
+       <!-- LastName -->
+       <div class="control-group">
+           <label class="control-label"  for="lastName">Last Name</label>
+           <div class="controls">
+             <input type="text"[(ngModel)]="registration.lastName" id="lastName" name="LastName" placeholder="Enter your Last Name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" #lastNameField="ngModel">
+           </div>
+           <div *ngIf="!lastNameField.valid && (lastNameField.dirty || lastNameField.touched)">
+               <span style="color: #c52323">Last Name Required</span>
+           </div>
+         </div>
     
-       <label class="control-label" for="female" style= 'display: inline'>Female</label>
-      <input type="radio" name="gender" value="F" [(ngModel)]="registration.gender" />
-      </div>
-      </div>
-    </div>
-  
-      <!-- Button -->
-      <div class="control-group">
-        <div class="controls-group">
-          <button class="btn btn-success">Register</button>
+       <!-- E-mail -->
+       <div class="control-group">
+         <label class="control-label" for="email">E-mail</label>
+         <div class="controls">
+           <input type="text" [(ngModel)]="registration.email" id="email" name="email" placeholder="Enter your Email" pattern="^\S+@\S+$" #emailField= "ngModel">
+          </div>
+          <div *ngIf="!emailField.valid && (emailField.dirty || emailField.touched)">
+             <span style="color: #c52323">Email-Id Required</span>
+         </div>
+       </div>
+   
+       <!-- contactNo -->
+       <div class="control-group"> 
+           <label class="control-label"  for="contactNo">Contact No</label>
+           <div class="controls">
+              <input type="text" [(ngModel)]="registration.contactNo"id="contactNo" name="contactNo" placeholder="Enter your Contact No" pattern="^[6-9]\d{9}$" #contactNoField="ngModel">
+           </div>
+           <div *ngIf="!contactNoField.valid && (contactNoField.dirty || contactNoField.touched)">
+               <span style="color: #c52323">Contact No Required</span>
+           </div>
+         </div>
+    
+       <!-- Password -->
+       <div class="control-group">
+         <label class="control-label" for="password">Password</label>
+         <div class="controls">
+           <input type="password" [(ngModel)]="registration.password" id="password" name="password" placeholder="Enter your Password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" #passwordField="ngModel">
+          </div>
+          <div *ngIf="!passwordField.valid && (passwordField.dirty || passwordField.touched)" class="password-reminder">
+             <span style="color: #c52323">Minimum eight char,at least one letter & one no</span>
+         </div>
+       </div>
+       
+ 
+       <!-- <div class="form-group">
+           <label class="form-label" for="password">Change Password</label>
+           <div class="controls">
+           <input type="password" class="form-control" id="password" name="password" [(ngModel)]="registration.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}" #passwordField="ngModel">
         </div>
-      </div>
-  </form>
+       </div>
+        <div *ngIf="!passwordField.valid && (passwordField.dirty || passwordField.touched)" class="password-reminder">
+            <span style="color: red">Your password must be over 8 characters and include an uppercase letter, a number and a special character</span>
+        </div> -->
+ 
+       <!-- ConfirmPassword -->
+       <div class="control-group">
+           <label class="control-label" for="password">Confirm Password</label>
+           <div class="controls">
+             <input type="password" [(ngModel)]="registration.confirmPassword"id="ConfirmPassword" name="Confirm Password" placeholder="Re-type your Password"  pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" #confirmPasswordField="ngModel">
+            </div>
+            <div *ngIf="!confirmPasswordField.valid && (confirmPasswordField.dirty || confirmPasswordField.touched)" >
+               <span style="color: #c52323">Doesn't Match With your password</span>
+           </div>
+         </div>
+    
+       <!-- Gender -->
+         <div class = "control-group" >
+             <div class ="radio-button">
+         <div ng-if="selectedGender == 'M' || selectedGender == 'F'">
+           <label class="control-label" for="male"  style= 'display: inline'>Male</label>
+         <input type="radio" name="gender" value="M" [(ngModel)]="registration.gender" ng-checked="true" />
+     
+        <label class="control-label" for="female" style= 'display: inline'>Female</label>
+       <input type="radio" name="gender" value="F" [(ngModel)]="registration.gender" />
+       </div>
+       </div>
+     </div>
+   
+       <!-- Button -->
+       <div class="control-group">
+         <div class="controls-group">
+           <button class="btn btn-success">Register</button>
+         </div>
+       </div>
+   </form>
+  </div>
+ 
  </div>
-
-</div>
-
-
-  
+ 
+ 
+   
+ <router-outlet></router-outlet>

@@ -7,16 +7,12 @@ import { RegistrationService } from './service/registration.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-// import { RegistrationComponent } from './registration/registration.component';
-// import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponent
-    // RegistrationComponent,
-    // LoginComponent
   ],
   imports: [
     BrowserModule,

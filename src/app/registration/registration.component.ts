@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {RegistrationModel} from '../model/registration.model';
 import {RegistrationService } from '../service/registration.service';
 import {NgForm} from '@angular/forms';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'registration',
@@ -12,9 +11,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   title = 'Registration';
-  form = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-  });
   registration: RegistrationModel = new RegistrationModel();
   constructor(private registrationService: RegistrationService) { }
 
