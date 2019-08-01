@@ -54,6 +54,7 @@
   }
   .controls-group{
       margin-top: 15px;
-      text-align: center;
+      margin-left: 90px;
+      /* text-align: center; */
       /* padding: 10px; */
   }
