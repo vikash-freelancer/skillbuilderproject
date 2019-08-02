@@ -20,7 +20,7 @@
              <input type="text"[(ngModel)]="registration.firstName" id="lastName" name="FirstName" placeholder="Enter your First Name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" #firstNameField="ngModel">
            </div>
            <div *ngIf="!firstNameField.valid && (firstNameField.dirty || firstNameField.touched)">
-               <span style="color: #c52323">First Name Required</span>
+               <span style="color: #c52323">Valid First Name Required !</span>
            </div>
          </div>
          
@@ -32,7 +32,7 @@
              <input type="text"[(ngModel)]="registration.lastName" id="lastName" name="LastName" placeholder="Enter your Last Name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" #lastNameField="ngModel">
            </div>
            <div *ngIf="!lastNameField.valid && (lastNameField.dirty || lastNameField.touched)">
-               <span style="color: #c52323">Last Name Required</span>
+               <span style="color: #c52323">Valid Last Name Required !</span>
            </div>
          </div>
     
@@ -43,7 +43,7 @@
            <input type="text" [(ngModel)]="registration.email" id="email" name="email" placeholder="Enter your Email" pattern="^\S+@\S+$" #emailField= "ngModel">
           </div>
           <div *ngIf="!emailField.valid && (emailField.dirty || emailField.touched)">
-             <span style="color: #c52323">Email-Id Required</span>
+             <span style="color: #c52323">Valid Email-Id Required !</span>
          </div>
        </div>
    
@@ -54,7 +54,7 @@
               <input type="text" [(ngModel)]="registration.contactNo"id="contactNo" name="contactNo" placeholder="Enter your Contact No" pattern="^[6-9]\d{9}$" #contactNoField="ngModel">
            </div>
            <div *ngIf="!contactNoField.valid && (contactNoField.dirty || contactNoField.touched)">
-               <span style="color: #c52323">Contact No Required</span>
+               <span style="color: #c52323">Valid Contact No Required !</span>
            </div>
          </div>
     
@@ -65,7 +65,7 @@
            <input type="password" [(ngModel)]="registration.password" id="password" name="password" placeholder="Enter your Password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" #passwordField="ngModel">
           </div>
           <div *ngIf="!passwordField.valid && (passwordField.dirty || passwordField.touched)" class="password-reminder">
-             <span style="color: #c52323">Minimum eight char,at least one letter & one no</span>
+             <span style="color: #c52323">Minimum eight char,at least one letter & one no !</span>
          </div>
        </div>
        
@@ -87,7 +87,7 @@
              <input type="password" [(ngModel)]="registration.confirmPassword"id="ConfirmPassword" name="Confirm Password" placeholder="Re-type your Password"  pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" #confirmPasswordField="ngModel">
             </div>
             <div *ngIf="!confirmPasswordField.valid && (confirmPasswordField.dirty || confirmPasswordField.touched)" >
-               <span style="color: #c52323">Doesn't Match With your password</span>
+               <span style="color: #c52323">Doesn't Match Password !</span>
            </div>
          </div>
     
