@@ -19,7 +19,7 @@ export class RegistrationService {
 
 
   public addRegistration(registration) {
-    return this.http.post<RegistrationModel>('http://localhost:1234/156/registration',registration);
+    return this.http.post<RegistrationModel>('http://localhost:1234/156/student',registration);
   }
 
 }
