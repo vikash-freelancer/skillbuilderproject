@@ -54,7 +54,11 @@
   }
   .controls-group{
       margin-top: 15px;
-      margin-left: 90px;
+      margin-left: 20px;
       /* text-align: center; */
       /* padding: 10px; */
+  }
+  .cancel{
+    margin-left: 30px;
+    /* margin-right: 10px; */
   }
