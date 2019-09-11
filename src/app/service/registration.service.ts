@@ -11,13 +11,6 @@ export class RegistrationService {
 
   constructor(private http:HttpClient) {}
 
-  
-
-//   public getCustomer() {
-//     return this.http.get<Customer>('http://localhost:8002/customerIssue/getCustomer');
-//   }
-
-
   public addRegistration(registration) {
     return this.http.post<RegistrationModel>('http://localhost:1234/156/student',registration);
   }

@@ -8,11 +8,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './service/auth.service';
+import{ UrlPermission } from '../urlPermission/url.permission';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponent
+    routingComponent,
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,9 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   providers: [
-    RegistrationService
+    AuthService,
+    RegistrationService,
+    UrlPermission
   ],
   bootstrap: [AppComponent]
 })

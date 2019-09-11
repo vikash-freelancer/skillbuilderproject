@@ -8,10 +8,8 @@
       
      </div>
      <div class="col-lg-4">
-    <form class="form-horizontal" #f="ngForm" (ngSubmit)="addRegistration(f)" >
+    <form class="form-horizontal" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
     
-        <!-- <h4 style="color: blue ; text-align:left;margin-top:40px;margin-left: 20px">SIGN UP</h4> -->
-      
         <div class="line2">
          <h1>SKILL Builder</h1>
         </div>
@@ -22,7 +20,7 @@
        <div class="control-group">
            <label class="control-label"  for="email">E-mail</label>
            <div class="controls">
-             <input type="text"[(ngModel)]="registration.email" id="email" name="email" placeholder="Enter Registered Mail-Id" class="input-xlarge">
+             <input type="text"[(ngModel)]="user.email" id="email" name="email" placeholder="Enter Registered Mail-Id" class="input-xlarge">
            </div>
          </div>
      
@@ -30,7 +28,7 @@
        <div class="control-group">
          <label class="control-label" for="password">Password</label>
          <div class="controls">
-           <input type="password" [(ngModel)]="registration.password" id="password" name="password" placeholder="Enter your Password" class="input-xlarge">
+           <input type="password" [(ngModel)]="user.password" id="password" name="password" placeholder="Enter your Password" class="input-xlarge">
           </div>
        </div>
    
@@ -38,15 +36,15 @@
        <div class="control-group">
          <div class="controls-group">
            <button class="btn btn-primary">Sign In</button>
-           <hr class="hr-text" data-content="OR">
-         </div>
+         </div> <hr class="hr-text" data-content="OR">
+
          <div class ="social_button">
          <button class="btn btn-primary"style="margin-left: 20px;margin-right: 20px">f</button>
          <button class="btn btn-info" style="margin-left: 20px;margin-right: 20px">t</button>
          <button class="btn btn-danger"style="margin-left: 20px;margin-right: 20px">g+</button>
         </div>
      <span  style="text-align: center">Don't have an account ? 
-     <a (click)="gotopage()" class="btn btn-click">Sign Up Here</a>  </span>
+     <a (click)="gotopage()" class="btn btn-click">Sign Up Here!</a></span>
        </div>
    </form>
   </div>
